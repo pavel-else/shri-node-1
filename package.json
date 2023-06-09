@@ -1,0 +1,22 @@
+{
+  "name": "shri-node-1",
+  "version": "1.0.0",
+  "description": "Тестовое задание макс. 100 балл. Дедлайн: 11 июн. 23:00 Все языкиNode.js 16.17.0 Ограничение времени 20 секунд 1 секунда Ограничение памяти 189.1 Мб 1.7 Кб Ввод стандартный ввод или input.js Вывод стандартный вывод или output.txt",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavel-else/shri-node-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavel-else/shri-node-1/issues"
+  },
+  "homepage": "https://github.com/pavel-else/shri-node-1#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

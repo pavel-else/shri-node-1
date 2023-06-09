@@ -1,18 +1,23 @@
 const express = require("express");
 const { parse } = require('./parse.js');
 
-// const app = express();
-// const port = 3000;
+const app = express();
+const port = 3000;
 
-// app.post('/parse', async (req, res) => {
-//     console.log('req', parse('https://test.com/'));
-//     res.send(await parse('https://test.com/'));
-// })
+app.use(express.json());
 
-// app.listen(port, () => {
-//     console.log(`Example app listening on port ${port}`);
-// })
+app.post('/parse', async (req, res) => {
+    const url = req.body.domainName;
 
-parse('https://test.com/').then(async (result) => {
-    console.log(result)
-});
+    if (!url) {
+        res.send('Undefined domainName');
+        return;
+    }
+
+    res.json(await parse(url));
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+})
+

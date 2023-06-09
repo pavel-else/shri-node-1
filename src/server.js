@@ -1,22 +1,18 @@
 const express = require("express");
+const { parse } = require('./parse.js');
 
-const { fetcher } = require('../fetcher.js');
+// const app = express();
+// const port = 3000;
 
+// app.post('/parse', async (req, res) => {
+//     console.log('req', parse('https://test.com/'));
+//     res.send(await parse('https://test.com/'));
+// })
 
-/*
-    TODO: краулер страницы
-    POST http://localhost:3000/parse
-    body: { domainName: string}
-    return string[]
-*/
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`);
+// })
 
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+parse('https://test.com/').then(async (result) => {
+    console.log(result)
+});

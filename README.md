@@ -44,3 +44,11 @@ const { fetcher } = require('../fetcher.js');
 Скачать вложения можно по ссылке
 
 Если используете typescript - в src.zip должно находиться уже скомпилированное в js приложение с файлом server.js для запуска и остальными файлами.
+
+## Комменты
+
+```
+curl --location 'localhost:3000/parse' \
+--header 'Content-Type: application/json' \
+--data '{"domainName": "https://test.com/"}'
+```

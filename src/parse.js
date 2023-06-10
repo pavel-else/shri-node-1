@@ -14,6 +14,9 @@ const parse = async (url) => {
     const visitedRoutes = new Set();
     const routes = [url];
 
+    // Похоже, в итоговый список должны попадать только те роуты, которые отдают 200
+    const resultRoutes = [];
+
     for await (const route of routes) {
         if (visitedRoutes.has(route)) {
             continue;
@@ -25,6 +28,7 @@ const parse = async (url) => {
             const { status, text } = await retryedFetch(route);
 
             if (status === 200) {
+                resultRoutes.push(route);
                 const html = await text();
 
                 const hrefs = html.match(/href="([^\'\"]+)/g);
@@ -42,7 +46,7 @@ const parse = async (url) => {
         }
     }
 
-    return Array.from(visitedRoutes);
+    return resultRoutes;
 };
 
 module.exports = { parse };
